@@ -142,6 +142,15 @@ page 50300 ReportParameter
 
             }
 
+            group(CreditGroupo)
+            {
+                Caption = 'Credit';
+
+
+                //felder aus gutschrift einfügen
+
+
+            }
 
         }
     }
