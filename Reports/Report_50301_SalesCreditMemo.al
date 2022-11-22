@@ -3,9 +3,9 @@ report 50301 "CIT - Sales - Credit Memo"
     RDLCLayout = './ReportLayouts/CreditMemo.rdlc';
     Caption = 'CIT - Sales - Credit Memo';
     DefaultLayout = RDLC;
+    EnableHyperlinks = true;
     Permissions = TableData "Sales Shipment Buffer" = rimd;
     PreviewMode = PrintLayout;
-    WordMergeDataItem = Header;
 
     dataset
     {
@@ -14,6 +14,13 @@ report 50301 "CIT - Sales - Credit Memo"
             DataItemTableView = SORTING("No.");
             RequestFilterFields = "No.", "Sell-to Customer No.", "No. Printed";
             RequestFilterHeading = 'Posted Sales Credit Memo';
+
+            //Header
+            column(SalesCreditMemoLbl; SalesCreditMemolbl)
+            {
+            }
+
+            //CIT End
             column(CompanyAddress1; CompanyAddr[1])
             {
             }
@@ -32,18 +39,18 @@ report 50301 "CIT - Sales - Credit Memo"
             column(CompanyAddress6; CompanyAddr[6])
             {
             }
-            column(CompanyHomePage; CompanyInfo."Home Page")
+            /*  column(CompanyHomePage; CompanyInfo."Home Page")
+             {
+             } */
+            /* column(CompanyEMail; CompanyInfo."E-Mail")
             {
-            }
-            column(CompanyEMail; CompanyInfo."E-Mail")
-            {
-            }
+            } */
             column(CompanyPicture; DummyCompanyInfo.Picture)
             {
             }
-            column(CompanyPhoneNo; CompanyInfo."Phone No.")
+            /* column(CompanyPhoneNo; CompanyInfo."Phone No.")
             {
-            }
+            } */
             column(CompanyPhoneNo_Lbl; CompanyInfoPhoneNoLbl)
             {
             }
@@ -53,12 +60,12 @@ report 50301 "CIT - Sales - Credit Memo"
             column(CompanyGiroNo_Lbl; CompanyInfoGiroNoLbl)
             {
             }
-            column(CompanyBankName; CompanyInfo."Bank Name")
+            /* column(CompanyBankName; CompanyInfo."Bank Name")
             {
             }
             column(CompanyBankName_Lbl; CompanyInfoBankNameLbl)
             {
-            }
+            } */
             column(CompanyBankBranchNo; CompanyInfo."Bank Branch No.")
             {
             }
@@ -71,18 +78,18 @@ report 50301 "CIT - Sales - Credit Memo"
             column(CompanyBankAccountNo_Lbl; CompanyInfoBankAccNoLbl)
             {
             }
-            column(CompanyIBAN; CompanyInfo.IBAN)
+            /* column(CompanyIBAN; CompanyInfo.IBAN)
             {
-            }
+            } */
             column(CompanyIBAN_Lbl; CompanyInfo.FieldCaption(IBAN))
             {
             }
-            column(CompanySWIFT; CompanyInfo."SWIFT Code")
-            {
-            }
-            column(CompanySWIFT_Lbl; CompanyInfo.FieldCaption("SWIFT Code"))
-            {
-            }
+            /*  column(CompanySWIFT; CompanyInfo."SWIFT Code")
+             {
+             }
+             column(CompanySWIFT_Lbl; CompanyInfo.FieldCaption("SWIFT Code"))
+             {
+             } */
             column(CompanyLogoPosition; CompanyLogoPosition)
             {
             }
@@ -92,9 +99,9 @@ report 50301 "CIT - Sales - Credit Memo"
             column(CompanyRegistrationNumber_Lbl; CompanyInfo.GetRegistrationNumberLbl)
             {
             }
-            column(CompanyVATRegNo; CompanyInfo.GetVATRegistrationNumber)
-            {
-            }
+            /*  column(CompanyVATRegNo; CompanyInfo.GetVATRegistrationNumber)
+             {
+             } */
             column(CompanyVATRegNo_Lbl; CompanyInfo.GetVATRegistrationNumberLbl)
             {
             }
@@ -275,7 +282,7 @@ report 50301 "CIT - Sales - Credit Memo"
             column(DocumentNo; "No.")
             {
             }
-            column(DocumentNo_Lbl; InvNoLbl)
+            column(DocumentNo_Lbl; DocNoLbl)
             {
             }
             column(AppliesToDocument; AppliesToText)
@@ -389,6 +396,128 @@ report 50301 "CIT - Sales - Credit Memo"
             column(VATClause_Lbl; VATClause.TableCaption)
             {
             }
+
+            //Footer
+            column(BankConnectionLbl; BankConnectionLbl)
+            {
+            }
+            column(CompanyBankName; CompanyInfo."Bank Name")
+            {
+            }
+            column(CompanyBankName_Lbl; CompanyInfoBankNameLbl)
+            {
+            }
+            column(CompanyVATRegNo; CompanyInfo.GetVATRegistrationNumber)
+            {
+            }
+            column(VATRegistrationNumberLbl; VATRegistrationNumberLbl)
+            {
+            }
+            column(PhoneNumberlbl; PhoneNumberlbl)
+            {
+            }
+            column(CompanyPhoneNo; CompanyInfo."Phone No.")
+            {
+            }
+            column(SwiftLbl; SwiftLbl)
+            {
+            }
+            column(CompanySWIFT; CompanyInfo."SWIFT Code")
+            {
+            }
+            column(CompanySWIFT_Lbl; CompanyInfo.FieldCaption("SWIFT Code"))
+            {
+            }
+            column(DistrictCourtLbl; DistrictCourtLbl)
+            {
+            }
+            column(DistrictCourt; CompanyInfo.CIT_DistrictCourt)
+            {
+            }
+            column(EMailLbl; EMailLbl)
+            {
+            }
+            column(CompanyEMail; CompanyInfo."E-Mail")
+            {
+            }
+            column(CompanyIBAN; CompanyInfo.IBAN)
+            {
+            }
+            column(SecondIBAN; CompanyInfo.CIT_SecondIBAN)
+            {
+            }
+            column(CompanyIBANEUR_Lbl; IBANEURLbl)
+            {
+            }
+            column(CompanyIBANUSD_Lbl; IBANUSDLbl)
+            {
+            }
+            column(RegisterNoLbl; CompanyInfo.FieldCaption("CIT_RegisterNo."))
+            {
+            }
+            column(RegisterNo; CompanyInfo."CIT_RegisterNo.")
+            {
+            }
+            column(WebLbl; WebLbl)
+            {
+            }
+            column(CompanyHomePage; CompanyInfo."Home Page")
+            {
+            }
+            column(CompanyCustomMangingDirector_Caption; CompanyInfo.FieldCaption(CIT_ManagingDirector))
+            {
+            }
+            column(CompanyCustomMangingDirector; CompanyInfo.CIT_ManagingDirector)
+            {
+            }
+
+            column(FieldPageNo; ReportParam.FieldPageNo)
+            {
+            }
+            column(FieldHeadline; ReportParam.FieldHeadline)
+            {
+            }
+            column(Field1; ReportParam.Field1)
+            {
+            }
+
+            column(Field2; ReportParam.Field2)
+            {
+            }
+
+            column(Field3; ReportParam.Field3)
+            {
+            }
+            column(Field4; ReportParam.Field4)
+            {
+            }
+
+            column(Field5; ReportParam.Field5)
+            {
+            }
+            column(FieldVAT1; ReportParam.FieldVAT1)
+            {
+            }
+            column(FieldVAT2; ReportParam.FieldVAT2)
+            {
+            }
+            column(FieldVAT3; ReportParam.FieldVAT3)
+            {
+            }
+            column(FieldInvoiceText1; ReportParam.FieldInvoiceText1)
+            {
+            }
+            column(FieldInvoiceText2; ReportParam.FieldInvoiceText2)
+            {
+            }
+            column(FieldInvoiceText3; ReportParam.FieldInvoiceText3)
+            {
+            }
+            column(FieldInvoiceText4; ReportParam.FieldInvoiceText4)
+            {
+            }
+            //CIT End
+
             dataitem(Line; "Sales Cr.Memo Line")
             {
                 DataItemLink = "Document No." = FIELD("No.");
@@ -1009,26 +1138,66 @@ report 50301 "CIT - Sales - Credit Memo"
     end;
 
     var
+        //CIT Begin
+
+        //Header
+        PageLbl: Label 'Page';
+        SalesCreditMemoLbl: Label 'Credit Memo';
+        NumberDocumentbl: Label 'No.: ';
+        DocNoLbl: Label 'Credit Memo No.';
+        NumberLbl: Label 'No.:';
+        Date_Lbl: Label 'Date: ';
+        Subject_Lbl: Label 'Subject:';
+        From_Lbl: Label 'from: ';
+        Pos_Lbl: Label 'Pos.';
+        ItemNumberLbl: Label 'No.';
+        Quantity_Line_Lbl: Label 'Quantity';
+        UnitOfMeasureLbl: Label 'Unit';
+        UnitPrice_Lbl: Label 'Price';
+        TotalPriceLineLbl: Label 'Total';
+        ItemLbl: Label 'Item';
+        YourOrderNumberLbl: Label 'Subject:';
+        OrderDateLbl: Label 'Order Date:';
+        YourSignLbl: Label 'Your Sign:';
+        SupplierLbl: Label 'Supplier No:';
+        DeliveryDataLbl: Label 'Delivery data:';
+        DeliveryNoteLbl: Label 'Delivery Slip No.:';
+
+        //Report Param
+        ReportParam: Record ReportParameter;
+
+        //Footer
+        WebLbl: Label 'Internet:';
+        IBANUSDLbl: Label 'IBAN_USD:'; //'IBAN:';
+        IBANEURLbl: Label 'IBAN_EUR:'; //'IBAN:';
+        EMailLbl: Label 'E-Mail:';
+        DistrictCourtLbl: Label 'District Court';
+        SwiftLbl: Label 'BIC';
+        PhoneNumberlbl: Label 'Phone';
+        VATRegistrationNumberLbl: Label 'VAT.-IDNo.';
+        CompanyInfoBankNameLbl: Label 'Bank';
+        BankConnectionLbl: Label 'Bank Connection';
+        //CIT End
         SalesCreditMemoNoLbl: Label 'Sales - Credit Memo %1';
         SalespersonLbl: Label 'Sales person';
         CompanyInfoBankAccNoLbl: Label 'Account No.';
-        CompanyInfoBankNameLbl: Label 'Bank';
+        //CompanyInfoBankNameLbl: Label 'Bank';
         CompanyInfoGiroNoLbl: Label 'Giro No.';
         CompanyInfoPhoneNoLbl: Label 'Phone No.';
         CopyLbl: Label 'Copy';
-        EMailLbl: Label 'Email';
+        //EMailLbl: Label 'Email';
         HomePageLbl: Label 'Home Page';
         InvDiscBaseAmtLbl: Label 'Invoice Discount Base Amount';
         InvDiscountAmtLbl: Label 'Invoice Discount';
-        InvNoLbl: Label 'Credit Memo No.';
+        //InvNoLbl: Label 'Credit Memo No.';
         LineAmtAfterInvDiscLbl: Label 'Payment Discount on VAT';
         LocalCurrencyLbl: Label 'Local Currency';
-        PageLbl: Label 'Page';
+        //PageLbl: Label 'Page';
         PaymentTermsDescLbl: Label 'Payment Terms';
         PaymentMethodDescLbl: Label 'Payment Method';
         PostedShipmentDateLbl: Label 'Shipment Date';
         SalesInvLineDiscLbl: Label 'Discount %';
-        SalesCreditMemoLbl: Label 'Credit Memo';
+        //SalesCreditMemoLbl: Label 'Credit Memo';
         ShipmentLbl: Label 'Shipment';
         ShiptoAddrLbl: Label 'Ship-to Address';
         ShptMethodDescLbl: Label 'Shipment Method';
